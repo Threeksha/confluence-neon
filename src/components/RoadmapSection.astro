@@ -1,0 +1,33 @@
+---
+import { milestones } from '../data/milestones';
+---
+
+<section class="timeline-section section" id="timeline">
+        <div class="section-label">03 — THE JOURNEY</div>
+        <div class="section-title-row"><div><h2>Four phases. <span>One big idea.</span></h2><p>From first idea to final presentation.</p></div></div>
+        <div class="journey-track-shell">
+          <div class="journey-track-hint"><span class="journey-track-dot"></span> MOVE RIGHT TO EXPLORE EACH PHASE</div>
+          <div class="timeline" aria-label="Four phases of the Confluence journey" tabindex="0">
+            {milestones.map((milestone, index) => (
+              <article class="milestone" data-phase-index={index}>
+                <div class="milestone-node">{milestone.icon}</div>
+                <span class="phase-label">{milestone.date}</span>
+                <h3>{milestone.title}</h3>
+                <p>{milestone.description}</p>
+                <div class="phase-outcome">
+                  <strong>OUTCOME</strong>
+                  <span>{milestone.outcome}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div class="journey-track-footer">
+            <div class="journey-progress" aria-label="Journey progress"><span class="journey-progress-fill"></span></div>
+            <div class="journey-track-controls">
+              <span class="journey-step-count"><strong class="journey-current-step">01</strong><span> / 04</span></span>
+              <button class="journey-arrow journey-arrow-prev" type="button" aria-label="Previous phase" disabled>←</button>
+              <button class="journey-arrow journey-arrow-next" type="button" aria-label="Next phase">→</button>
+            </div>
+          </div>
+        </div>
+      </section>

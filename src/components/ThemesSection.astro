@@ -1,0 +1,48 @@
+---
+import { themes } from '../data/themes';
+---
+
+<section class="themes section" id="themes">
+        <div class="section-label">02 — THE POSSIBILITIES</div>
+        <div class="section-title-row">
+          <div><h2>Explore our <span>themes.</span></h2><p>Big challenges. Different perspectives. Limitless potential.</p></div>
+          <span class="section-index">08 CHALLENGES / 01 MISSION</span>
+        </div>
+        <div class="theme-grid">
+          {themes.map((theme) => (
+            <article class={`theme-card ${theme.style}`}>
+              <div class="card-top"><span>{theme.number} / DOMAIN</span><span class="card-icon">{theme.icon}</span></div>
+              <div class="card-art">
+                <video
+                  class="theme-video"
+                  data-video-src={theme.video}
+                  poster={theme.image}
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  tabindex="-1"
+                ></video>
+                <img class="theme-poster" src={theme.image} alt={theme.imageAlt ?? theme.title} loading="lazy" decoding="async" />
+                <svg class="art-connectivity" viewBox="0 0 320 145" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <g class="art-network-lines" fill="none" stroke="var(--accent)" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M-8 96 C30 72 48 36 88 45 S145 101 184 78 S242 25 330 44" />
+                    <path d="M18 22 C57 52 82 94 124 88 S187 35 220 51 S267 111 310 121" />
+                    <path d="M-4 127 C44 118 71 76 112 62 S183 70 220 104 S278 79 327 80" />
+                  </g>
+                  <g class="art-network-nodes" fill="var(--accent)">
+                    <circle cx="18" cy="22" r="2.1"/><circle cx="48" cy="68" r="2.4"/><circle cx="88" cy="45" r="2"/>
+                    <circle cx="112" cy="62" r="2.2"/><circle cx="124" cy="88" r="2.5"/><circle cx="184" cy="78" r="2.2"/>
+                    <circle cx="220" cy="51" r="2.4"/><circle cx="220" cy="104" r="2"/><circle cx="267" cy="111" r="2.3"/>
+                    <circle cx="310" cy="121" r="2.1"/><circle cx="310" cy="44" r="2.4"/>
+                  </g>
+                </svg>
+                <span class="image-mark" aria-hidden="true">{theme.icon}</span>
+              </div>
+              <div class="card-bottom"><div class="card-title-row"><h3>{theme.title}</h3><button class="theme-expand" type="button" aria-expanded="false" aria-label={`Show more about ${theme.title}`} aria-controls={`theme-extra-${theme.number}`}>＋</button></div><p>{theme.description}</p><div class="theme-extra" id={`theme-extra-${theme.number}`} hidden><span>CHALLENGE STARTER</span><p>Identify a real user problem in this area, rethink an existing solution, and prototype one measurable improvement.</p><a href="#participate">How to approach it ↗</a></div></div>
+            </article>
+          ))}
+        </div>
+        <p class="disclaimer">Proposed challenge areas for Confluence 2026. Final tracks will be confirmed by the organizers.</p>
+      </section>
